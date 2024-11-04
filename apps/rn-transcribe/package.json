@@ -1,0 +1,44 @@
+{
+  "name": "rn-transcribe",
+  "version": "0.0.1",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "metro-config": "*",
+    "react-native": "*",
+    "expo": "*",
+    "react-native-svg": "*",
+    "react-native-web": "*",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "tslib": "*",
+    "@nx/js": "*",
+    "@nx/web": "*",
+    "@nx/jest": "*",
+    "@nx/react": "*",
+    "@nx/devkit": "*",
+    "@nx/eslint": "*",
+    "node-fetch": "*",
+    "picocolors": "*",
+    "@nx/webpack": "*",
+    "metro-resolver": "*",
+    "tsconfig-paths": "*",
+    "enhanced-resolve": "*",
+    "@expo/metro-config": "*",
+    "react-native-svg-transformer": "*",
+    "expo-build-properties": "*"
+  },
+  "scripts": {
+    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/rn-transcribe",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
+  },
+  "devDependencies": {},
+  "expo": {
+    "doctor": {
+      "reactNativeDirectoryCheck": {
+        "listUnknownPackages": false
+      }
+    }
+  }
+}

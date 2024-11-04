@@ -16,7 +16,7 @@ zerops:
         NMIT_LIFETIME_PRODUCT_VARIANT_ID: ${RUNTIME_NMIT_LIFETIME_PRODUCT_VARIANT_ID}
         NEXTAUTH_URL: ${RUNTIME_NEXTAUTH_URL}
       prepareCommands:
-        - echo "Upgrading bun to 1.1.32"
+        - echo "Upgrading bun to 1.1.34"
         - bun upgrade
       buildCommands:
         - bun install
@@ -38,7 +38,7 @@ zerops:
         - port: 3000
           httpSupport: true
       prepareCommands:
-        - echo "Upgrading bun to 1.1.32"
+        - echo "Upgrading bun to 1.1.34"
         - bun upgrade
       start: bun apps/backend/dist/index.js
 
