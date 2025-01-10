@@ -46,7 +46,7 @@
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "cross-env": "^7.0.3",
-    "effect": "^3.10.15",
+    "effect": "^3.12.1",
     "elysia": "^1.1.25",
     "lefthook": "^1.8.2",
     "lucide-react": "^0.462.0",

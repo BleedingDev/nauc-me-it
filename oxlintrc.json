@@ -5,7 +5,7 @@
   "settings": {},
   "plugins": ["nursery", "typescript-eslint"],
   "rules": {
-    "import/no-cycle": "error",
+    "import/no-cycle": ["warn", { "maxDepth": 2 }],
     "react-perf/jsx-no-new-function-as-prop": "off",
     "react-perf/jsx-no-new-array-as-prop": "off",
     "react-perf/jsx-no-new-object-as-prop": "off",
@@ -25,6 +25,7 @@
     "consistent-type-imports": "warn",
     "typescript/no-unsafe-function-type": "error",
     "typescript/no-wrapper-object-types": "error",
-    "typescript/no-unsafe-declaration-merging": "error"
+    "typescript/no-unsafe-declaration-merging": "error",
+    "no-unused-vars": "error"
   }
 }

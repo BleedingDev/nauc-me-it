@@ -3,6 +3,7 @@ import { swagger } from '@elysiajs/swagger'
 import { apiAuth } from '@nmit-coursition/api/auth'
 import { apiDev } from '@nmit-coursition/api/dev'
 import { apiV1 } from '@nmit-coursition/api/v1'
+import { typedEnv } from '@nmit-coursition/env'
 import { apiOrder } from '@nmit-coursition/order'
 import * as Sentry from '@sentry/bun'
 import { Elysia } from 'elysia'
@@ -51,6 +52,6 @@ const app = new Elysia()
   .use(apiV1)
   .use(apiDev)
   .get('/', ({ request }) => ({ message: 'Welcome to Coursition API!', documentationUrl: `${request.url}swagger` }))
-  .listen(parseInt(process.env['BACKEND_PORT'] || '3000', 10))
+  .listen(typedEnv.BACKEND_PORT)
 
 export type App = typeof app

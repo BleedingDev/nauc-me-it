@@ -1,5 +1,6 @@
 import { treaty } from '@elysiajs/eden'
+import { typedEnv } from '@nmit-coursition/env'
 import type { App } from '../../../backend/src/index'
 
-const backendUrl = process.env['BACKEND_URL'] || `http://localhost:${process.env['BACKEND_PORT'] || '3000'}`
+const backendUrl = typedEnv.BACKEND_URL.href || `http://localhost:${typedEnv.BACKEND_PORT}`
 export const app = treaty<App>(backendUrl)

@@ -1,6 +1,6 @@
 import type { QueryClient } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
-import { Outlet, ScriptOnce, ScrollRestoration, createRootRouteWithContext } from '@tanstack/react-router'
+import { Outlet, ScrollRestoration, createRootRouteWithContext } from '@tanstack/react-router'
 import { Meta, Scripts } from '@tanstack/start'
 import { Suspense, lazy } from 'react'
 

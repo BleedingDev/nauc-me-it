@@ -1,5 +1,6 @@
 import { AUTH_COOKIES_NAME, validateSessionToken } from '@nmit-coursition/auth'
 import { Prisma, prisma } from '@nmit-coursition/db'
+import { secretsEnv } from '@nmit-coursition/env'
 import { generateRandomIdentifier, isDateBeforeNow } from '@nmit-coursition/utils'
 import type { cas__user } from '@prisma/client'
 import * as Sentry from '@sentry/bun'
@@ -71,7 +72,7 @@ function initSentry(request: ExtendedRequest) {
 }
 
 export async function reportUsage(identityId: string, duration: number, type: 'video' | 'document' | 'web') {
-  const apiKey = process.env['BRJ_API_KEY']
+  const apiKey = secretsEnv.BRJ_API_KEY
   const amount = Math.ceil(duration)
   await fetch(`https://brj.app/api/v1/customer/credit-spend?apiKey=${apiKey}`, {
     method: 'POST',

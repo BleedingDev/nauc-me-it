@@ -12,7 +12,6 @@ zerops:
         DIRECT_URL: ${RUNTIME_DIRECT_URL}
         PROJECT_ID: ${RUNTIME_PROJECT_ID}
         SITE_URL: ${RUNTIME_SITE_URL}
-        BRJ_API_KEY: ${RUNTIME_BRJ_API_KEY}
       prepareCommands:
         - echo "Upgrading bun to 1.1.42"
         - bun upgrade

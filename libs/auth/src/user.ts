@@ -1,4 +1,5 @@
 import { prisma } from '@nmit-coursition/db'
+import { secretsEnv } from '@nmit-coursition/env'
 import { randomStringGenerator } from '@nmit-coursition/utils'
 import type { User, UserProfileRawRecord, UserProfileResponse } from './typescript'
 
@@ -81,13 +82,13 @@ export async function createApiKey(userId: bigint): Promise<string> {
 }
 
 export async function createBrjMagicAuth(userData: User): Promise<string> {
-  const request = await fetch(`https://brj.app/api/v1/customer/magic-auth?apiKey=${process.env['BRJ_API_KEY']}`, {
+  const request = await fetch(`https://brj.app/api/v1/customer/magic-auth?apiKey=${secretsEnv.BRJ_API_KEY}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      apiKey: process.env['BRJ_API_KEY'],
+      apiKey: secretsEnv.BRJ_API_KEY,
       email: userData.email,
       firstName: userData.firstName,
       lastName: userData.lastName,
@@ -100,19 +101,19 @@ export async function createBrjMagicAuth(userData: User): Promise<string> {
 }
 
 export async function logoutBrj(session: string) {
-  const res = await fetch(`https://brj.app/api/v1/customer/logout?apiKey=${process.env['BRJ_API_KEY']}`, {
+  const res = await fetch(`https://brj.app/api/v1/customer/logout?apiKey=${secretsEnv.BRJ_API_KEY}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ apiKey: process.env['BRJ_API_KEY'], identityId: session }),
+    body: JSON.stringify({ apiKey: secretsEnv.BRJ_API_KEY, identityId: session }),
   })
   console.log(res)
 }
 
 export async function getBrjIdentity(session: string) {
   const res = await fetch(
-    `https://brj.app/api/v1/customer/get-account-info?apiKey=${process.env['BRJ_API_KEY']}&identityId=${session}`,
+    `https://brj.app/api/v1/customer/get-account-info?apiKey=${secretsEnv.BRJ_API_KEY}&identityId=${session}`,
   )
   return res.json()
 }
