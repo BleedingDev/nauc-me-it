@@ -1,4 +1,4 @@
-import { AUTH_COOKIES_NAME, validateSessionToken } from '@nmit-coursition/auth'
+import { AUTH_BRJ_COOKIES_NAME, AUTH_COOKIES_NAME, validateSessionToken } from '@nmit-coursition/auth'
 import { Prisma, prisma } from '@nmit-coursition/db'
 import { secretsEffect } from '@nmit-coursition/env'
 import { generateRandomIdentifier, isDateBeforeNow } from '@nmit-coursition/utils'
@@ -34,8 +34,9 @@ export const apiCommonGuard = new Elysia().guard({
   headers: headersModel,
   beforeHandle: async ({ headers, request: r, error, set, cookie }) => {
     const session = cookie[AUTH_COOKIES_NAME]?.toString() || ''
+    const identityId = cookie[AUTH_BRJ_COOKIES_NAME]?.toString() || ''
     const apiKeyRaw = headers['authorization'] || ''
-    const apiKey = apiKeyRaw || (await validateSessionToken(session))
+    const apiKey = apiKeyRaw || (await validateSessionToken(session, identityId))
 
     const request = r as ExtendedRequest
     request.requestId = generateRandomIdentifier()
